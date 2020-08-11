@@ -1,0 +1,76 @@
+<wsdl:definitions
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:sch="ws.app.hawer.com"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="ws.app.hawer.com" targetNamespace="ws.app.hawer.com">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="qualified" targetNamespace="ws.app.hawer.com">
+			<xsd:element name="LogApplicationActivity">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="guid_app" type="xsd:string" />
+						<xsd:element name="guid_production" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Response">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="message" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LogApplicationError">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="guid_app" type="xsd:string" />
+						<xsd:element name="guid_production" type="xsd:string" />
+						<xsd:element name="error" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ErrorResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="guid_app" type="xsd:string" />
+						<xsd:element name="guid_production" type="xsd:string" />
+						<xsd:element name="error" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ErrorResponse">
+		<wsdl:part element="tns:ErrorResponse" name="ErrorResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="Response">
+		<wsdl:part element="tns:Response" name="Response">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="LogApplicationActivity">
+		<wsdl:operation name="Error">
+			<wsdl:output message="tns:ErrorResponse"
+				name="ErrorResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="LogApplicationActivitySoap11"
+		type="tns:LogApplicationActivity">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="Error">
+			<soap:operation soapAction="" />
+			<wsdl:output name="ErrorResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="LogApplicationActivityService">
+		<wsdl:port binding="tns:LogApplicationActivitySoap11"
+			name="LogApplicationActivitySoap11">
+			<soap:address location="http://localhost:8181/ws" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
