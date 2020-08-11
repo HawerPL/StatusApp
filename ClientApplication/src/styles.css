@@ -1,0 +1,52 @@
+@import "~angular-notifier/styles";
+
+html {
+    font-size: 1rem;
+  }
+
+@include media-breakpoint-up(sm) {
+    html {
+      font-size: 1.2rem;
+    }
+  }
+  
+@include media-breakpoint-up(md) {
+html {
+  font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+
+body{
+    margin: 0 auto;
+    font-variant: small-caps;
+    font-family: Lato;
+    background-color: #fdf8ed;
+}
+
+table{
+    font-variant: normal;
+}
+
+table tr td{
+    vertical-align: middle!important;
+}
+
+.btn{
+    background-color: #343a40;
+    color: #d0dcd3;
+    border-radius: 0px;
+}
+
+.btn:focus, .btn:active {
+    box-shadow: 0 0 0 2px #717572;
+  }
+
+.btn:hover{
+    color: #ffffff;
+}

@@ -1,0 +1,58 @@
+<section class="d-flex justify-content-center flex-column h-100 align-items-center">
+    <h1>Ustawienia</h1>
+    <div class="table-responsive-lg">
+        <table class="table table-striped table-borderless table-hover">
+            <thead class="thead-dark lead text-center">
+                <th>Nazwa użytkownika</th>
+                <th>Hasło</th>
+                <th>Rola</th>
+                <th>Email</th>
+                <th>Opis</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" placeholder="Nazwa użytkownika" class="form-control" [(ngModel)]="username" name="username"
+                            autocomplete="off">
+                    </td>
+                    <td><input type="password" placeholder="Hasło" class="form-control" [(ngModel)]="password" name="password"
+                            autocomplete="new-password">
+                    </td>
+                    <td>
+                        <select [(ngModel)]="role" name="role" class="form-control" required>
+                            <option *ngFor="let o of options">
+                                {{o.name}}
+                            </option>
+                        </select>
+                    </td>
+                    <td><input type="text" placeholder="Email" class="form-control" [(ngModel)]="email" name="email"
+                        autocomplete="off" required>
+                    </td>
+                    <td><input type="text" placeholder="Opis" class="form-control" [(ngModel)]="description" name="description" autocomplete="off"></td>
+                    <td><button (click)="addUser()" class="btn">Dodaj użytkownika</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-striped table-borderless table-hover">
+            <thead class="thead-dark text-center">
+                <th>ID</th>
+                <th>Nazwa użytkownika</th>
+                <th>Rola</th>
+                <th>Email</th>
+                <th>Opis</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userArray">
+                    <td class="text-center">{{user.id}}</td>
+                    <td class="text-center">{{user.username}}</td>
+                    <td class="text-center">{{user.role}}</td>
+                    <td class="text-center">{{user.email}}</td>
+                    <td class="text-center">{{user.description}}</td>
+                    <td class="d-flex justify-content-center"><button routerLink="{{user.id}}" routerLinkActive="active" class="btn">Edytuj
+                            użytkownika</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

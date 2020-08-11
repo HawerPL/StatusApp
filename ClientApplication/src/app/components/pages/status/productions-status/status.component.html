@@ -1,0 +1,21 @@
+<section class="d-flex justify-content-center flex-column h-100 align-items-center">
+    <h1>Status produkcji</h1>
+    <div class="table-responsive-lg">
+        <table class="table table-striped table-borderless table-hover">
+            <thead class="thead-dark lead text-center">
+                <th>GUID</th>
+                <th>Nazwa produkcji</th>
+                <th>Opis</th>
+                <th></th>
+            </thead>
+            <tbody>
+                    <tr *ngFor="let p of productionsArray">
+                        <td class="text-center">{{p.guid}}</td>
+                        <td class="text-center">{{p.name}}</td>
+                        <td class="text-center">{{p.description}}</td>
+                        <td><button routerLink="{{p.guid}}" routerLinkActive="active" class="btn">Zobacz aplikacje</button></td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

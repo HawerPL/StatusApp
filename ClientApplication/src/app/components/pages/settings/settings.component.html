@@ -1,0 +1,25 @@
+<section class="d-flex justify-content-center flex-column h-100 align-items-center w-100">
+    <h1>Ustawienia</h1>
+    <div >
+        <form (submit)="changePassword()" class="d-flex justify-content-center w-100 flex-column">
+            <table class="table w-100">
+                <tbody  class="table-hover">
+                    <tr>
+                        <td>Nazwa użytkownika</td>
+                        <td>{{username}}</td>
+                    </tr>
+                    <tr>
+                        <td>Hasło</td>
+                        <td><button (click)="show = !show" *ngIf="!show" class="btn">Zmień hasło</button>
+                        <input *ngIf="show" type="password" placeholder="Nowe hasło" [(ngModel)]="newPassword" name="newPassword" class="form-control" required minlength="4"></td>
+                    </tr>
+                    <tr *ngIf="show">
+                        <td></td>
+                        <td><input type="password" placeholder="Powtórz hasło" [(ngModel)]="checkNewPassword" name="checkNewPassword" class="form-control"required minlength="4"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn" *ngIf="show">Potwierdź</button>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,11 @@
+<section class="d-flex justify-content-center h-100 d-inline-block">
+    <div class="align-self-center p-5 w-75 d-flex justify-content-center">
+        <form class="form-group d-flex flex-column align-items-center w-100" role="form" (submit)="login()">
+            <h3>Login</h3>
+            <span class="text-danger text-center m-1" *ngIf="invalidLogin">Nazwa użytkownika lub hasło jest nieprawidłowe. Spróbuj ponownie</span>
+            <input type="text" placeholder="Nazwa użytkownika" name="username" class="form-control m-1 w-25" [(ngModel)]="username">
+            <input type="password" placeholder="Hasło" name="password"  class="form-control m-1 w-25" [(ngModel)]="password">
+            <button type="button" type="submit" class="btn m-2">Zaloguj&nbsp;się</button>
+        </form>
+    </div>
+</section>

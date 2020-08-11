@@ -1,0 +1,29 @@
+<section class="d-flex justify-content-center flex-column h-100 align-items-center">
+    <h1>Aplikacje</h1>
+    <div class="table-responsive-xl w-100">
+        <table class="table table-striped table-borderless table-hover">
+            <thead class="thead-dark lead text-center">
+                <th>GUID</th>
+                <th>Nazwa Aplikacji</th>
+                <th>Opis</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td><input type="text" class="form-control" placeholder="Nazwa aplikacji" [(ngModel)]="name" name="name" autocomplete="off"></td>
+                    <td><input type="text" class="form-control" placeholder="Opis" [(ngModel)]="description" name="description"
+                            autocomplete="off"></td>
+                    <td><button (click)="addApplication()" class="btn">Dodaj aplikację</button></td>
+                </tr>
+                <tr *ngFor="let a of applicationArray">
+                    <td class="text-center">{{a.guid_app}}</td>
+                    <td>{{a.name}}</td>
+                    <td>{{a.description}}</td>
+                    <td><button routerLink="{{a.guid_app}}" routerLinkActive="active" class="btn">Edytuj
+                            aplikację</button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

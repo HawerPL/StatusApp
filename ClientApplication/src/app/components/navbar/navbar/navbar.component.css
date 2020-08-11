@@ -1,0 +1,16 @@
+.navbar{
+    font-size: 1.6rem;
+}
+
+.navbar-brand{
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.navbar-toggler{
+    outline: none;
+}
+
+.nav-link{
+    cursor: pointer;
+}

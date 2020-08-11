@@ -1,0 +1,38 @@
+<section class="d-flex justify-content-center flex-column h-100 align-items-center">
+    <h1>Edycja użytkownika</h1>
+    <div class="table-responsive-lg">
+        <table class="table table-striped table-borderless table-hover">
+            <thead class="thead-dark lead text-center">
+                <th >ID</th>
+                <th>Nazwa użytkownika</th>
+                <th>Hasło</th>
+                <th>Rola</th>
+                <th>Email</th>
+                <th>Opis</th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{id}}</td>
+                    <td><input type="text" placeholder="{{username}}" class="form-control" name="newUsername"
+                            [(ngModel)]="updateUsername" autocomplete="off">
+                    </td>
+                    <td><input type="password" placeholder="{{passwordField}}" class="form-control" name="newPassword"
+                            [(ngModel)]="password" autocomplete="new-password"></td>
+                    <td>
+                        <select class="form-control" [(ngModel)]="role" name="role">
+                            <option *ngFor="let r of roles" value="{{r}}">{{r}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input class="form-control" placeholder="{{email}}" name="newEmail" [(ngModel)]="updateEmail" autocomplete="off">
+                    </td>
+                    <td><input type="text" placeholder="{{description}}" class="form-control" [(ngModel)]="updateDescription" name="newDescription" autocomplete="off"></td>
+                    <td><button (click)="deleteUser(user.id)" class="close">&times;</button></td>
+                    <td><button (click)="updateUser(user.id)" class="btn">Zaktualizuj dane</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

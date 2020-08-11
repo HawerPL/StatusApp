@@ -1,0 +1,26 @@
+<section class="d-flex justify-content-center flex-column h-100 align-items-center">
+    <h1>Produkcja</h1>
+    <div class="table-responsive-lg">
+        <table class="table table-striped table-borderless table-hover">
+            <thead class="thead-dark lead text-center">
+                <th>GUID</th>
+                <th>Nazwa produkcji</th>
+                <th>Opis</th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">{{guid_p}}</td>
+                    <td><input type="text" placeholder="{{name}}" class="form-control" name="updateUsername"
+                            [(ngModel)]="updateName" required autocomplete="off"></td>
+                    <td><input type="text" placeholder="{{description}}" class="form-control" name="updateDescription"
+                        [(ngModel)]="updateDescription" required autocomplete="off"></td>
+                    <td class="text-center"><button (click)="deleteProduction(guid_p)" class="close">&times;</button></td>
+                    <td><button (click)="updateProduction(guid_p)" class="btn">Zaktualizuj&nbsp;dane</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <app-applications  [guid]="guid_p"></app-applications>
+    </div>
+</section>

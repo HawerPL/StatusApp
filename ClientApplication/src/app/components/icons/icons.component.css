@@ -1,0 +1,13 @@
+.go-back{
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    cursor: pointer;
+}
+
+.refresh{
+    position: fixed;
+    bottom: 1rem;
+    left: 5rem;
+    cursor: pointer;
+}
