@@ -53,7 +53,7 @@ public class ApplicationController {
 	@PostMapping("/application")
 	public void addApplication(@RequestBody ApplicationDto applicationDto) throws ServiceException {
 		try {
-			if (applicationDto.getName().isBlank()) {
+			if (applicationDto.getName().equals("")) {
 				throw new ServiceException("Aplikacja musi mieć nazwę");
 			}
 			applicationService.addApplication(applicationMapper.applicationDtoToApplication(applicationDto));

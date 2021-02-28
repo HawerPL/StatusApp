@@ -39,7 +39,9 @@ public class JwtAuthenticationController {
 		UserDetails userDetails;
 		try {
 			userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+			System.out.println("test");
 			if(userDetails == null) {
+				System.out.println("user to null");
 				throw new UsernameNotFoundException("Nie znaleziono użytkownika");
 			}
         } catch (UsernameNotFoundException e) {

@@ -8,9 +8,8 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import com.hawer.app.ws.ErrorResponse;
-import com.hawer.app.entity.Error;
 import com.hawer.app.services.LogApplicationErrorService;
+import com.hawer.app.ws.ErrorResponse;
 import com.hawer.app.ws.LogApplicationError;
 
 @Endpoint
@@ -29,7 +28,7 @@ public class ErrorEndpoint {
 		
 		ErrorResponse errorResponse = new ErrorResponse();
 		
-		Error error = new Error();
+		com.hawer.app.entity.Error error = new com.hawer.app.entity.Error();
 		error.setDate(date);
 		error.setGuid_app(request.getGuidApp());
 		error.setError(request.getError());

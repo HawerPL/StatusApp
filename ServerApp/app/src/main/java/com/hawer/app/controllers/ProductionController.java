@@ -53,7 +53,7 @@ public class ProductionController {
 	@PostMapping(value = "/production")
 	public void addProduction(@RequestBody ProductionDto productionDto) throws ServiceException {
 		try {
-			if (!productionDto.getName().isBlank()) {
+			if (!productionDto.getName().equals("")) {
 				productionService.addProduction(productionMapper.productionDtoToProduction(productionDto));
 			} else {
 				throw new ServiceException("Produkcja musi mieć nazwę");

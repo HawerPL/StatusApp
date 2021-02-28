@@ -40,13 +40,13 @@ public class UserController {
 			if (userService.existsUser(userDto.getUsername())) {
 				throw new ServiceException("Użytkownik z taką nazwą już istnieje");
 			}
-			if (userDto.getUsername().isBlank() || userDto.getUsername() == null) {
+			if (userDto.getUsername().equals("") || userDto.getUsername() == null) {
 				throw new ServiceException("Użytkownik musi mieć nazwę");
 			}
 			if(userDto.getRole() == null) {
 				throw new ServiceException("Ustaw rolę użytkownika");
 			}
-			if(userDto.getEmail().isBlank() || !userDto.getEmail().contains("@") || userDto.getEmail().length() < 5) {
+			if(userDto.getEmail().equals("") || !userDto.getEmail().contains("@") || userDto.getEmail().length() < 5) {
 				throw new ServiceException("Nieprawidłowy adres email");
 			}
 			return ResponseEntity.ok(userMapper.userToUserDto(userService.saveNewUser(userMapper.userDtoToUser(userDto))));
@@ -111,7 +111,7 @@ public class UserController {
 
 	}
 
-	@PutMapping(value = "admin-settings/user")
+	@PutMapping(value = "/admin-settings/user")
 	public void updateUser(@RequestBody UserDto userDto) throws ServiceException {
 		try {
 			if (userService.existsUser(userDto.getUsername())) {
@@ -125,7 +125,6 @@ public class UserController {
 			} else {
 				throw new ServiceException("Niepoprawny adres email");
 			}
-			System.out.println(userDto.getEmail());
 			userService.updateDataUser(userMapper.userDtoToUser(userDto));
 		} catch (ServiceException e) {
 			throw new ServiceException(e.getMessage());
